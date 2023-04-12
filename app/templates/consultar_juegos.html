@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Juegos</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>Listado de Juegos</h1>
+{% endblock h1_header %}
+
+
+{% block contenido %}
+<p>
+    <form action={% url 'app:consultar_juegos' %} class="text-center">
+        {{formulario}}
+        
+        <button>buscar
+        </button>
+        
+    </form>
+</p>
+{% if juegos %}
+
+<!-- Tabla de resutados de busqueda-->
+    <div> 
+        <table class="table table-hover table-sm table-bordered table-striped">
+            <thead>
+                <tr>
+                  <th class="text-center">Nombre</th>
+                  <th class="text-center">Desarollo</th>
+                  <th class="text-center">dispositivo</th>
+                  <th class="text-center">genero</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for juego in juegos %}
+                <tr>
+                  <td class="text-center">{{juego.nombre}}</td>
+                  <td class="text-center">{{juego.desarrollo}}</td>
+                  <td class="text-center">{{juego.dispositivo}}</td>
+                  <td class="text-center">{{juego.genero}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+
+
+        </table>
+    </div>
+
+    <div class="paginador">
+        <div class="row">
+
+        </div>
+    </div>
+{% else %}
+    <h2 class="text-center">No hay datos sobre juegos por el momento.</h2>
+{% endif %}
+{% endblock contenido %}

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Agregar Juego</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>Agregar Juego</h1>
+{% endblock h1_header %}
+
+
+{% block contenido %}
+<form action={% url 'app:alta_juego' %} method="POST">
+    {% csrf_token %}
+    
+    <table>
+        {{formulario}}
+    </table>
+    
+    <button>Crear</button>
+
+        
+</form>
+{% endblock contenido %}
