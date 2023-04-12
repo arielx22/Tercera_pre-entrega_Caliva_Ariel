@@ -1,12 +1,11 @@
 from django.shortcuts import render, redirect
 from app.models import Juego
 from app.forms import CreacionJuegoFormulario, BuscarJuego
-from django.shortcuts import HttpResponse
 
 # Create your views here.
 def mi_vista(request):
     return render(request, 'index.html')
-    return HttpResponse ("Hola")
+    
 def crear_juego(request):
     
     if request.method == "POST":
