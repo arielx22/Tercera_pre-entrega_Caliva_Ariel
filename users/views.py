@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.views import PasswordChangeView
 from django.contrib.auth import authenticate, login as django_login
 from django.shortcuts import redirect
@@ -8,7 +8,7 @@ from django.urls import reverse_lazy
 from users.models import InformacionExtra
 from users.forms import FormularioCreacion, EdicionDatosUsuario
 
-from django.contrib.auth.models import User
+
 
 # Create your views here.
 def login(request):
@@ -32,7 +32,6 @@ def login(request):
 def registro(request):
     
     if request.method == "POST":
-        # formulario = UserCreationForm(request.POST)
         formulario = FormularioCreacion(request.POST)
         
         if formulario.is_valid():
@@ -41,16 +40,9 @@ def registro(request):
         else:
             return render(request, 'registro.html', {'formulario': formulario})
             
-    
-    # formulario = UserCreationForm()
+
     formulario = FormularioCreacion()
     return render(request, 'registro.html', {'formulario': formulario})
-
-@login_required
-def mostrar_perfil(request, id_user):
-    perfil = InformacionExtra.objects.get(id=id_user)
-    return render(request, 'perfil.html', {'perfil': perfil})
-
 
 
 @login_required
