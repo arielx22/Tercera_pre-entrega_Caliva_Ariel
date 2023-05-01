@@ -1,4 +1,4 @@
-# tercera_pre-entrega_caliva_ariel
+# proyecto_final_caliva_ariel
 
 *Proyecto, con una app nombre "app" con los servicios de alta de juegos y consulta de juegos cargados.
 
