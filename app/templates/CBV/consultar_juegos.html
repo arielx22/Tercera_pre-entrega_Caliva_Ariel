@@ -12,7 +12,7 @@
 {% block contenido %}
 <p>
     <form action={% url 'app:consultar_juegos' %} class="text-center">
-        {{formulario}}
+        {{form}}
         
         <button>buscar
         </button>
@@ -23,7 +23,7 @@
     </form>
 </p>
 
-{% if juegos %}
+{% if object_list %}
 
 <!-- Tabla de resutados de busqueda-->
     <div> 
@@ -38,13 +38,14 @@
                 </tr>
             </thead>
             <tbody>
-                {% for juego in juegos %}
+                {% for juego in object_list %}
                 <tr>
                   <td class="text-center">{{juego.nombre}}</td>
                   <td class="text-center">{{juego.desarrollo}}</td>
                   <td class="text-center">{{juego.dispositivo}}</td>
                   <td class="text-center">{{juego.genero}}</td>
                   <td class="text-center">
+                    
                     <button>
                         <a class="navbar-brand" href={% url 'app:mostrar_juego' juego.id %}>Mostrar</a>
                     </button>
@@ -72,3 +73,6 @@
     <h2 class="text-center">No hay datos sobre juegos por el momento.</h2>
 {% endif %}
 {% endblock contenido %}
+
+
+

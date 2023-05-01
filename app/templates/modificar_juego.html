@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Modificar Juego</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>Modificar Juego</h1>
+{% endblock h1_header %}
+
+
+{% block contenido %}
+<form action={% url 'app:modificar_juego' id_juego %} method="POST">
+    {% csrf_token %}
+    <table>
+        {{formulario}}
+    </table>
+    <button>Modificar</button>
+</form>
+{% endblock contenido %}

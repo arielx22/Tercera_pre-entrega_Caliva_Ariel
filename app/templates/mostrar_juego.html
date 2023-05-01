@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title_head %}
+<title>Juego</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+<h1>{{juego_mostrar}}</h1>
+{% endblock h1_header %}
+
+
+{% block contenido %}
+<ul>
+    <li>Nombre: {{juego_mostrar.nombre}}</li>
+    <li>Desarollo: {{juego_mostrar.desarrollo}}</li>
+    <li>Dispositivo: {{juego_mostrar.dispositivo}}</li>
+    <li>Genero: {{juego_mostrar.genero}}</li>
+    
+</ul>
+<p>
+    <button>
+        <a class="navbar-brand" href={% url 'app:modificar_juego' juego_mostrar.id %}>Modificar</a>
+    </button>
+    <button>
+        <a class="navbar-brand" href={% url 'app:eliminar_juego' juego_mostrar.id %}>Eliminar</a>
+    </button>
+</p>
+{% endblock contenido %}
