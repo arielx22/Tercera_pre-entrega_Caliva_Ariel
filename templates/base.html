@@ -31,7 +31,7 @@
                         <img src={{request.user.informacionextra.avatar.url}} alt="" height="40px">
                     {% endif %}
                     
-                    <a href={% url 'users:editar_perfil' %}>{{request.user.username}}</a>
+                    <a href={% url 'users:perfil' %}>{{request.user.username}}</a>
                                          
                     <a class="btn btn-primary" href={% url 'users:logout' %}>Cerrar sesion</a>
                 {% else %}
@@ -67,6 +67,7 @@
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
                         <ul class="list-inline mb-2">
+                            <!-- Información general breve de la página-->
                             <li class="list-inline-item"><a href={% url 'app:nosotros' %}>Nosotros</a></li>
                         </ul>
                     </div>

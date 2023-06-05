@@ -10,11 +10,13 @@
 
 
 {% block contenido %}
-<form action={% url 'app:alta_juego' %} method="POST">
+<form action={% url 'app:alta_juego' %} method="POST", enctype='multipart/form-data'>
     {% csrf_token %}
     
     <table>
+        <!-- form.media para RichTextField-->
         <!-- va como form en vez de formulario, ya que en CBV trabaja en inglés-->
+        {{form.media}}
         {{form}}
     </table>
     

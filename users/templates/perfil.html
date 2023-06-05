@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title_head %}
+    <title>Perfil</title>
+{% endblock title_head %}
+
+{% block h1_header %}
+  <h1>Perfil de {{ usuario.username }}</h1>
+{% endblock h1_header %}
+
+
+{% block contenido %}
+<div>
+  <table class="table table-hover table-sm table-bordered table-striped">
+      <thead>
+          <tr>
+              <th class="text-center">Perfil</th>
+              <th class="text-center">Avatar</th>             
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+                
+              <th class="text-center">
+                  <ul> 
+                      <li>Usuario:{{ usuario.username }}</li>
+                      <li>Nombre: {{usuario.first_name}}</li>
+                      <li>Apellido {{usuario.last_name}}</li>
+                      <li>Descripción: {{usuario.informacionextra.descripcion | safe}}</li>
+                      <li>Email: {{ usuario.email }}</li>             
+                  </ul>
+              </th>
+              <th class="text-center">
+                  {% if usuario.informacionextra.avatar %}
+                     <img src={{ usuario.informacionextra.avatar.url }} alt="" height="200px"></p>
+                  {% endif %}             
+              </th>               
+          </tr>
+      </tbody>
+  </table>
+</div>
+  <button>
+    <a class="navbar-brand" href={% url 'users:editar_perfil' %}>Editar perfil</a>
+  </button>
+{% endblock contenido %}
+
+  
+ 

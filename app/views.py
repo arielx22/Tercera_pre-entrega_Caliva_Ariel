@@ -36,21 +36,21 @@ def lista_juegos(request):
     
 
 # vistas CBV (clases basada en vistas)
-class ListaJuegos(ListView):
-    model = Juego
-    template_name = 'CBV/consultar_juegos.html'
+#class ListaJuegos(ListView):
+#    model = Juego
+#    template_name = 'CBV/consultar_juegos.html'
     
 class CrearJuego(CreateView):
     model = Juego
     template_name = 'CBV/alta_juego.html'
     success_url = reverse_lazy('app:consultar_juegos')
-    fields = ['nombre', 'desarrollo','dispositivo','genero']
+    fields = ['nombre', 'desarrollo','dispositivo','genero','descripcion','imagen']
     
 class ModificarJuego(LoginRequiredMixin, UpdateView):
     model = Juego
     template_name = 'CBV/modificar_juego.html'
     success_url = reverse_lazy('app:consultar_juegos')
-    fields = ['nombre', 'desarrollo','dispositivo','genero']
+    fields = ['nombre', 'desarrollo','dispositivo','genero','descripcion','imagen']
     
 class EliminarJuego(LoginRequiredMixin, DeleteView):
     model = Juego

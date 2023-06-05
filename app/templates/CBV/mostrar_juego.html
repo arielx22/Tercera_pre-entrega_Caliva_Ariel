@@ -10,13 +10,35 @@
 
 
 {% block contenido %}
-<ul>
-    <li>Nombre: {{juego.nombre}}</li>
-    <li>Desarollo: {{juego.desarrollo}}</li>
-    <li>Dispositivo: {{juego.dispositivo}}</li>
-    <li>Genero: {{juego.genero}}</li>
-    
-</ul>
+<div>
+    <table class="table table-hover table-sm table-bordered table-striped">
+        <thead>
+            <tr>
+                <th class="text-center">Juego</th>
+                <th class="text-center">Especificaciones</th>             
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th class="text-center">
+                    {% if juego.imagen.url and juego.imagen%}
+                        <img src={{juego.imagen.url}} alt="" height="80px"> 
+                    {% endif %}
+                </th>    
+                <th class="text-center">
+                    <ul>
+                        <li>Nombre: {{juego.nombre}}</li>
+                        <li>Desarollo: {{juego.desarrollo}}</li>
+                        <li>Dispositivo: {{juego.dispositivo}}</li>
+                        <li>Genero: {{juego.genero}}</li>
+                        <li>Descripción: {{juego.descripcion | safe }}</li>
+                    </ul>
+                </th>             
+            </tr>
+        </tbody>
+    </table>
+</div>
+
 <p>
     <button>
         <a class="navbar-brand" href={% url 'app:modificar_juego' juego.id %}>Modificar</a>

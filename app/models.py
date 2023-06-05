@@ -9,10 +9,15 @@ class Juego(models.Model):
     dispositivo = models.CharField(max_length=50)
     genero = models.CharField(max_length=100)
     descripcion = RichTextField()
+    imagen = models.ImageField(upload_to='juegos', null=True, blank=True)
     
     
     def __str__(self):
         campo_desc= f'nombre:{self.nombre} - desarrollo:{self.desarrollo} - dispositivo:{self.dispositivo} - genero:{self.genero}'
         return campo_desc
+
+
+
+
         
     

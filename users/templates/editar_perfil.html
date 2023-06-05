@@ -17,9 +17,15 @@
 <form action='' method="post" enctype='multipart/form-data'>
     {% csrf_token %}
     <table>
+        {{formulario.media}}
         {{formulario}}
     </table>
     <button type='button'><a class="navbar-brand" href={% url 'users:cambio_contrasenia' %}>Cambiar contrasenia</a></button>
     <button>Guardar cambios</button>
 </form>
 {% endblock contenido %}
+
+
+
+
+

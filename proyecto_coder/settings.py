@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
-    'users'
+    'users',
+    'ckeditor'
 ]
 
 MIDDLEWARE = [
@@ -132,3 +133,5 @@ LOGIN_URL = '/users/login/'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CKEDITOR_UPLOAD_PATH = 'https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js'

@@ -10,9 +10,10 @@
 
 
 {% block contenido %}
-<form action={% url 'app:modificar_juego' juego.id %} method="POST">
+<form action={% url 'app:modificar_juego' juego.id %} method="POST", enctype='multipart/form-data'>
     {% csrf_token %}
     <table>
+        {{form.media}}
         {{form}}
     </table>
     <button>Modificar</button>

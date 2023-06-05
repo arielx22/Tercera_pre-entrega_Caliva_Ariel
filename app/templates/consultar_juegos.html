@@ -11,7 +11,7 @@
 
 {% block contenido %}
 <p>
-    <form action={% url 'app:consultar_juegos' %} class="text-center">
+    <form action={% url 'app:consultar_juegos' %} class="text-center" enctype='multipart/form-data'>
         {{formulario}}
         
         <button>buscar
@@ -25,25 +25,34 @@
 
 {% if juegos %}
 
+
 <!-- Tabla de resutados de busqueda-->
     <div> 
         <table class="table table-hover table-sm table-bordered table-striped">
             <thead>
                 <tr>
-                  <th class="text-center">Nombre</th>
-                  <th class="text-center">Desarollo</th>
-                  <th class="text-center">dispositivo</th>
-                  <th class="text-center">genero</th>
-                  <th class="text-center">opciones</th>
+                    <th class="text-center">Juegos</th>                       
+                    <th class="text-center">Especificaciones</th>                 
+                    <th class="text-center">Opciones</th>                 
                 </tr>
             </thead>
             <tbody>
                 {% for juego in juegos %}
                 <tr>
-                  <td class="text-center">{{juego.nombre}}</td>
-                  <td class="text-center">{{juego.desarrollo}}</td>
-                  <td class="text-center">{{juego.dispositivo}}</td>
-                  <td class="text-center">{{juego.genero}}</td>
+                  <td class="text-center">
+                    {% if juego.imagen.url and juego.imagen%}
+                        <img src={{juego.imagen.url}} alt="" height="80px"> 
+                    {% endif %}                             
+                  </td>  
+                  <td class="text-left">
+                    <ul>
+                        <li>Nombre: {{juego.nombre}}</li>
+                        <li>Desarollo: {{juego.desarrollo}}</li>
+                        <li>Dispositivo: {{juego.dispositivo}}</li>
+                        <li>Genero: {{juego.genero}}</li>
+                    </ul>
+                  </td>
+                  
                   <td class="text-center">
                     <button>
                         <a class="navbar-brand" href={% url 'app:mostrar_juego' juego.id %}>Mostrar</a>
